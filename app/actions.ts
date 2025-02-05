@@ -15,6 +15,7 @@ export async function createUser() {
   const email = user.emailAddresses[0]?.emailAddress || "Unknown";
   const name = user.firstName || user.username || 'Unknown';
 
+  
   // Check if the user already exists in the database
   const existingUser = await db
     .select()
