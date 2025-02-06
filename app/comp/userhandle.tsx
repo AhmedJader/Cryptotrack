@@ -20,7 +20,7 @@ const UserHandle = () => {
 
   return (
     <div>
-      <h2 className="text-xl font-semibold font-serif">{userName}, Here's your latest report!</h2>
+      <h2 className="text-xl font-semibold">{userName}, Here's your latest report!</h2>
     </div>
   )
 }
