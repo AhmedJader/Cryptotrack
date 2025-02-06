@@ -22,15 +22,22 @@ const CryptoHandle = () => {
     fetchCrypto();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (!cryptoData?.bitcoin) return <p className="text-red-500">Failed to load data</p>;
-
   return (
-    <div className="mt-10 text-center">
-      <h1 className="text-2xl font-bold">Crypto Portfolio</h1>
-      <p className="text-xl">Bitcoin Price (CAD): ${cryptoData.bitcoin.cad}</p>
-      <p className="text-sm text-gray-500">24h Change: {cryptoData.bitcoin.cad_24h_change.toFixed(2)}%</p>
-    </div>
+    <aside className="w-80 bg-white p-6 rounded-lg shadow-lg ml-6 max-h-80 overflow-y-auto">
+      <h2 className="text-xl font-semibold text-gray-800 mb-4">Crypto Portfolio</h2>
+      {loading ? (
+        <p className="text-gray-500">Loading...</p>
+      ) : cryptoData?.bitcoin ? (
+        <div>
+          <p className="text-xl">Bitcoin Price (CAD): ${cryptoData.bitcoin.cad}</p>
+          <p className="text-sm text-gray-500">
+            24h Change: {cryptoData.bitcoin.cad_24h_change.toFixed(2)}%
+          </p>
+        </div>
+      ) : (
+        <p className="text-red-500">Failed to load data</p>
+      )}
+    </aside>
   );
 };
 

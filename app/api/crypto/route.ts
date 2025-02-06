@@ -3,7 +3,8 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=cad&include_24hr_change=true&precision=0";
+    const id = "bitcoin"; // Define the id variable
+    const url = `https://api.coingecko.com/api/v3/simple/price?ids=${id}&vs_currencies=cad&include_24hr_change=true&precision=0`;
     
     const options = {
       method: "GET",
